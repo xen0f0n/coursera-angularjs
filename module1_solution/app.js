@@ -14,7 +14,7 @@ function LunchCheckController($scope) {
 		var num_words = arr.length;
 		// check number of items
 		// if number of items > 3
-		if (num_words >= 3) {
+		if (num_words > 3) {
 			$scope.msg = "Too much!";
 		}
 		else {
