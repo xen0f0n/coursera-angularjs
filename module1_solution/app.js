@@ -14,7 +14,11 @@ function LunchCheckController($scope) {
 		var num_words = arr.length;
 		// check number of items
 		// if number of items > 3
-		if (num_words > 3) {
+		console.log(num_words);
+		if ($scope.list == "") {
+			$scope.msg = "Please enter data first";
+		}
+		else if (num_words > 3) {
 			$scope.msg = "Too much!";
 		}
 		else {
