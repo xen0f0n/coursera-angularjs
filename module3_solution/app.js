@@ -59,7 +59,7 @@ function MenuSearchService($http) {
   });
   return response.then(function (result) {
     for (var j = 0; j < result.data.menu_items.length; j++) {
-      if (searchTerm!="" && result.data.menu_items[j].name.toLowerCase().includes(searchTerm.toLowerCase())) {
+      if (searchTerm!="" && result.data.menu_items[j].description.toLowerCase().includes(searchTerm.toLowerCase())) {
         console.log(result.data.menu_items[j].name);
         foundItems.push(result.data.menu_items[j]);
       }
