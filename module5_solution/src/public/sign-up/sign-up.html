@@ -94,8 +94,6 @@
       Email: {{ reg.user.email}} <br>
       Phone: {{ reg.user.phone }} <br>
 
-      <p ng-if="reg.flag==false" style="margin-top: 30px;"> No such menu number exists </p>
-
       <div ng-if="reg.flag==true" style="margin-top: 30px;">
       {{ reg.user.dish.name }}
       <br>
@@ -105,7 +103,9 @@
       <img src="{{reg.imgSrc}}" alt="" style="border: #222 solid 4px;">
       </div>
     </div>
-  </div>
+      <div ng-if="reg.flag==false" style="color: #f6b319;"> No such menu number exists. Please replace your dish input and resubmit. </div>
+
+    </div>
 
   </div>
 
