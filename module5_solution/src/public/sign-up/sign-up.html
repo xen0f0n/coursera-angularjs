@@ -88,7 +88,7 @@
       {{reg.message}}
     </div> -->
   
-    <div id="info" ng-if="reg.completed && reg.flag" style="text-align: center;">
+    <div id="info" ng-if="reg.completed && reg.flag==true" style="text-align: center;">
       <p style="color: #f6b319;">Your information has been saved</p>
       Name: {{ reg.user.firstName}} {{reg.user.lastName}} <br>
       Email: {{ reg.user.email}} <br>
