@@ -1,0 +1,30 @@
+<div class="container" ng-controller="InfoController as infoCtrl">
+  <h2 id="menu-categories-title" class="text-center">My Info</h2>
+  <div class="text-center">
+  </div>
+
+  <menu-category ng-repeat="menuCategory in menuCtrl.menuCategories"
+                 category="menuCategory">
+  </menu-category>
+
+  <div ng-if="infoCtrl.flag " class="text-center">
+  	  {{infoCtrl.firstName}} {{infoCtrl.lastName}} 
+  	  <br>
+  	  {{infoCtrl.email}}
+  	  <br>
+  	  {{infoCtrl.phone}}
+  	  <br> 
+      {{infoCtrl.dish.name}}
+      <br>
+      {{infoCtrl.dish.description}}
+      <br>
+      <br>
+      <img src="{{infoCtrl.imgSrc}}" alt="" style="border: #222 solid 4px;">
+  </div> 
+
+  <div ng-if="infoCtrl.flag == false" class="text-center">
+  	<a ui-sref = "public.signup" style="color: #f6b319;">Not Signed Up Yet. Sign up Now!</a>
+  </div>
+
+
+</div>

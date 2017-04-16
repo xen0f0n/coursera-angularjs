@@ -1,0 +1,114 @@
+<div class="container" ng-controller="RegistrationController as reg">
+  <h2 id="menu-categories-title" class="text-center">Registration</h2>
+  <div class="text-center">
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-xs-6 col-lg-6">
+      <!-- <fieldset style="text-align: center; width:60%;"> -->
+       <form name='regForm' novalidate style="text-align: center;">
+          <input type="text" name="firstName" placeholder="First Name"
+            ng-model="reg.user.firstName"
+            required
+            minlength="3"
+            ng-maxlength="10"
+            style="text-align: center;" >
+            <br>
+            <span
+              ng-if="(regForm.firstName.$error.minlength || regForm.firstName.$error.required) &&   regForm.firstName.$touched">
+              Your name isn't at least 3 letters? Come on, man...
+            </span>
+            <span ng-if="regForm.firstName.$error.maxlength && regForm.firstName.$touched">
+              You name can not be longer than 10 characters
+            </span>
+            <br>
+            <br>
+          <input type="text" name="lastName" placeholder="Last Name"
+            ng-model="reg.user.lastName"
+            required
+            minlength="3"
+            ng-maxlength="20"
+            style="text-align: center;">
+            <!-- {{ reg.user.lastName }} -->
+            <br>
+            <span
+              ng-if="(regForm.lastName.$error.minlength || regForm.lastName.$error.required) &&   regForm.lastName.$touched">
+              Seriously now, that's your name?
+            </span>
+            <span ng-if="regForm.lastName.$error.maxlength && regForm.lastName.$touched">
+              Seriously now, that's your name?
+            </span>
+            <br>
+            <br>
+          <input type="email" name="email" placeholder="Email"
+            ng-model="reg.user.email"
+            required
+            style="text-align: center;">
+            <br>
+            <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+              Must be a valid email address: handle@domain format
+            </span>
+            <br>
+            <br>
+          <input type="text" name="phone" placeholder="Phone ###-###-####"
+            ng-model="reg.user.phone"
+            required
+            pattern="(\d{3})-(\d{3})-(\d{4})"
+            style="text-align: center;">
+            <br>
+            <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+              Phone must be in the format ###-###-####.
+            </span>
+            <br>
+            <br>
+          <input type="text" name="dish" placeholder="You favourite dish"
+            ng-model="reg.user.shortName"
+            
+            style="text-align: center;">
+            <br>
+            <span ng-if="regForm.phone.$invalid && regForm.dish.$touched">
+              Dish must have at least 2 characters.
+            </span>
+            <br>
+          <br>
+            <button
+              ng-disabled="regForm.$invalid"
+              ng-click="reg.submit()">Submit
+            </button>
+    
+            <div style="margin-top: 10px;">
+              Form valid? {{ regForm.$valid }}
+            </div>	
+       </form>
+        <!-- </fieldset> -->
+    </div>
+    <div class="col-md-6 col-xs-6 col-lg-6">
+    <!-- <div style="text-align: center;">    
+      {{reg.user.dish}}
+      {{reg.message}}
+    </div> -->
+  
+    <div id="info" ng-if="reg.completed" style="text-align: center;">
+      <p style="color: #f6b319;">Your information has been saved</p>
+      Name: {{ reg.user.firstName}} {{reg.user.lastName}} <br>
+      Email: {{ reg.user.email}} <br>
+      Phone: {{ reg.user.phone }} <br>
+
+      <p ng-if="reg.flag==false" style="margin-top: 30px;"> No such menu number exists </p>
+
+      <div ng-if="reg.flag==true" style="margin-top: 30px;">
+      {{ reg.user.dish.name }}
+      <br>
+      {{ reg.user.dish.description}}
+      <br>
+      <br>
+      <img src="{{reg.imgSrc}}" alt="" style="border: #222 solid 4px;">
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+
+</div> <!-- container -->
